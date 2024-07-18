@@ -55,6 +55,8 @@ $db['default'] = array(
     'save_queries' => TRUE
 );
 
+(https://github.com/user-attachments/assets/38d933ea-56b4-488f-95be-35c234d50c81)
+
 ### Projeyi Localde Ayağa Kaldırın
 php -S localhost:8000
 
