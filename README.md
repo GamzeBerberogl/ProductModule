@@ -21,7 +21,7 @@ Bu, CodeIgniter 3 kullanılarak oluşturulmuş basit bir ürün yönetim sistemi
 
 ### Depoyu Klonlayın
 
-git clone https://github.com/your-username/product-management-system.git
+git clone [https://github.com/GamzeBerberogl/ProductModule.git](https://github.com/GamzeBerberogl/ProductModule.git)
 
 ### Bağımlılıkları Yükleyin
 composer install
@@ -36,9 +36,9 @@ $query_builder = TRUE;
 $db['default'] = array(
     'dsn'   => '',
     'hostname' => 'localhost',
-    'username' => 'your_username',
-    'password' => 'your_password',
-    'database' => 'your_database',
+    'username' => 'username',
+    'password' => 'password',
+    'database' => 'database',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => FALSE,
@@ -55,28 +55,30 @@ $db['default'] = array(
     'save_queries' => TRUE
 );
 
+### Projeyi Localde Ayağa Kaldırın
+php -S localhost:8000
 
 ### Örnek Test Verilerini Başlatın
 Veritabanını örnek verilerle doldurmak için seeder'ı çalıştırın. Tarayıcınızı açın ve aşağıdaki URL'ye gidin:
-http://localhost/your_project_directory/index.php/seeder
+http://localhost:8080/seeder
 
 
 ### Kullanım
 
 Proje kurulumunu tamamladıktan sonra, aşağıdaki URL'ye giderek ürün yönetim sistemine erişebilirsiniz:
-http://localhost/your_project_directory/index.php/product
+http://localhost:8080/product
 
 Ürünlerin listesini görmek için:
-http://localhost/your_project_directory/index.php/product
+http://localhost:8080/product
 
 Yeni bir ürün eklemek için:
-http://localhost/your_project_directory/index.php/product/create
+http://localhost:8080/product/create
 
 Mevcut bir ürünü düzenlemek için:
-http://localhost/your_project_directory/index.php/product/edit/{id}
+http://localhost:8080/product/edit/{id}
 
 Mevcut bir ürünü silmek için:
-http://localhost/your_project_directory/index.php/product/delete/{id}
+http://localhost:8080/product/delete/{id}
 
 ### Örnek Veriler
 
