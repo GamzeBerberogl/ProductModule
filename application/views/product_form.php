@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ürün Formu</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slide img {
+            width: 100%;
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
@@ -12,10 +36,10 @@
             <h2><?php echo isset($product) ? 'Ürün Düzenle' : 'Yeni Ürün Ekle'; ?></h2>
             <div>
                 <button type="submit" form="productForm" class="btn btn-primary"><?php echo isset($product) ? 'Güncelle' : 'Kaydet'; ?></button>
-                <a href="<?php echo site_url('product'); ?>" class="btn btn-secondary">İptal</a>
+                <a href="<?php echo base_url('product'); ?>" class="btn btn-secondary">İptal</a>
             </div>
         </div>
-        <form id="productForm" action="<?php echo isset($product) ? site_url('product/update/'.$product->id) : site_url('product/save'); ?>" method="post" enctype="multipart/form-data">
+        <form id="productForm" action="<?php echo isset($product) ? base_url('product/update/'.$product->id) : base_url('product/save'); ?>" method="post" enctype="multipart/form-data">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="genel-tab" data-toggle="tab" href="#genel" role="tab" aria-controls="genel" aria-selected="true">Genel</a>
@@ -117,70 +141,70 @@
                 <div class="tab-pane fade" id="detaylar" role="tabpanel" aria-labelledby="detaylar-tab">
                     <div class="form-group mt-3">
                         <label for="product_title">Ürün Başlığı</label>
-                        <input type="text" class="form-control" id="product_title" name="product_title" value="<?php echo isset($product->product_title) ? $product->product_title : ''; ?>">
+                        <input type="text" class="form-control" id="product_title" name="product_title" value="<?php echo isset($product_details->product_title) ? $product_details->product_title : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="extra_info_title">Ek Bilgi Başlığı</label>
-                        <input type="text" class="form-control" id="extra_info_title" name="extra_info_title" value="<?php echo isset($product->extra_info_title) ? $product->extra_info_title : ''; ?>">
+                        <input type="text" class="form-control" id="extra_info_title" name="extra_info_title" value="<?php echo isset($product_details->extra_info_title) ? $product_details->extra_info_title : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="extra_info_description">Ek Bilgi Açıklaması</label>
-                        <textarea class="form-control" id="extra_info_description" name="extra_info_description"><?php echo isset($product->extra_info_description) ? $product->extra_info_description : ''; ?></textarea>
+                        <textarea class="form-control" id="extra_info_description" name="extra_info_description"><?php echo isset($product_details->extra_info_description) ? $product_details->extra_info_description : ''; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="meta_title">Meta Title</label>
-                        <input type="text" class="form-control" id="meta_title" name="meta_title" value="<?php echo isset($product->meta_title) ? $product->meta_title : ''; ?>">
+                        <input type="text" class="form-control" id="meta_title" name="meta_title" value="<?php echo isset($product_details->meta_title) ? $product_details->meta_title : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="meta_keywords">Meta Keywords</label>
-                        <textarea class="form-control" id="meta_keywords" name="meta_keywords"><?php echo isset($product->meta_keywords) ? $product->meta_keywords : ''; ?></textarea>
+                        <textarea class="form-control" id="meta_keywords" name="meta_keywords"><?php echo isset($product_details->meta_keywords) ? $product_details->meta_keywords : ''; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="meta_description">Meta Description</label>
-                        <textarea class="form-control" id="meta_description" name="meta_description"><?php echo isset($product->meta_description) ? $product->meta_description : ''; ?></textarea>
+                        <textarea class="form-control" id="meta_description" name="meta_description"><?php echo isset($product_details->meta_description) ? $product_details->meta_description : ''; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="seo_address">SEO Adresi</label>
-                        <input type="text" class="form-control" id="seo_address" name="seo_address" value="<?php echo isset($product->seo_address) ? $product->seo_address : ''; ?>">
+                        <input type="text" class="form-control" id="seo_address" name="seo_address" value="<?php echo isset($product_details->seo_address) ? $product_details->seo_address : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="product_description">Ürün Açıklaması</label>
-                        <textarea class="form-control" id="product_description" name="product_description"><?php echo isset($product->product_description) ? $product->product_description : ''; ?></textarea>
+                        <textarea class="form-control" id="product_description" name="product_description"><?php echo isset($product_details->product_description) ? $product_details->product_description : ''; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="video_embed_code">Video Embed Kodu</label>
-                        <textarea class="form-control" id="video_embed_code" name="video_embed_code"><?php echo isset($product->video_embed_code) ? $product->video_embed_code : ''; ?></textarea>
+                        <textarea class="form-control" id="video_embed_code" name="video_embed_code"><?php echo isset($product_details->video_embed_code) ? $product_details->video_embed_code : ''; ?></textarea>
                     </div>
                 </div>
 
                 <div class="tab-pane fade" id="indirim" role="tabpanel" aria-labelledby="indirim-tab">
                     <div class="form-group mt-3">
                         <label for="customer_group">Müşteri Grubu</label>
-                        <input type="text" class="form-control" id="customer_group" name="customer_group" value="<?php echo isset($product->customer_group) ? $product->customer_group : ''; ?>">
+                        <input type="text" class="form-control" id="customer_group" name="customer_group" value="<?php echo isset($product_discounts[0]->customer_group) ? $product_discounts[0]->customer_group : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="priority">Öncelik</label>
-                        <input type="number" class="form-control" id="priority" name="priority" value="<?php echo isset($product->priority) ? $product->priority : ''; ?>">
+                        <input type="number" class="form-control" id="priority" name="priority" value="<?php echo isset($product_discounts[0]->priority) ? $product_discounts[0]->priority : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="discount_rate_tl">İndirim Oranı (TL)</label>
-                        <input type="text" class="form-control" id="discount_rate_tl" name="discount_rate_tl" value="<?php echo isset($product->discount_rate_tl) ? $product->discount_rate_tl : ''; ?>">
+                        <input type="text" class="form-control" id="discount_rate_tl" name="discount_rate_tl" value="<?php echo isset($product_discounts[0]->discount_rate_tl) ? $product_discounts[0]->discount_rate_tl : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="discount_rate_usd">İndirim Oranı (USD)</label>
-                        <input type="text" class="form-control" id="discount_rate_usd" name="discount_rate_usd" value="<?php echo isset($product->discount_rate_usd) ? $product->discount_rate_usd : ''; ?>">
+                        <input type="text" class="form-control" id="discount_rate_usd" name="discount_rate_usd" value="<?php echo isset($product_discounts[0]->discount_rate_usd) ? $product_discounts[0]->discount_rate_usd : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="discount_rate_eur">İndirim Oranı (EUR)</label>
-                        <input type="text" class="form-control" id="discount_rate_eur" name="discount_rate_eur" value="<?php echo isset($product->discount_rate_eur) ? $product->discount_rate_eur : ''; ?>">
+                        <input type="text" class="form-control" id="discount_rate_eur" name="discount_rate_eur" value="<?php echo isset($product_discounts[0]->discount_rate_eur) ? $product_discounts[0]->discount_rate_eur : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="start_date">Başlangıç Tarihi</label>
-                        <input type="date" class="form-control" id="start_date" name="start_date" value="<?php echo isset($product->start_date) ? $product->start_date : ''; ?>">
+                        <input type="date" class="form-control" id="start_date" name="start_date" value="<?php echo isset($product_discounts[0]->start_date) ? $product_discounts[0]->start_date : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="end_date">Bitiş Tarihi</label>
-                        <input type="date" class="form-control" id="end_date" name="end_date" value="<?php echo isset($product->end_date) ? $product->end_date : ''; ?>">
+                        <input type="date" class="form-control" id="end_date" name="end_date" value="<?php echo isset($product_discounts[0]->end_date) ? $product_discounts[0]->end_date : ''; ?>">
                     </div>
                 </div>
 
@@ -189,6 +213,17 @@
                         <label for="image_path">Resim Yolu</label>
                         <input type="file" class="form-control-file" id="image_path" name="image_path">
                     </div>
+                    <?php if(isset($product_images) && !empty($product_images)): ?>
+                        <div class="slider-container mt-3">
+                            <div class="slider">
+                                <?php foreach ($product_images as $image) : ?>
+                                    <div class="slide">
+                                        <img src="<?php echo base_url('uploads/' . $image->image_path); ?>" alt="Product Image">
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </form>
@@ -197,5 +232,32 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            const slider = document.querySelector('.slider');
+            if (index >= totalSlides) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else {
+                currentIndex = index;
+            }
+            slider.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        setInterval(nextSlide, 3000); // Otomatik geçiş için
+    </script>
 </body>
 </html>
