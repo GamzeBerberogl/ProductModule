@@ -9,17 +9,16 @@ class Product_details_model extends CI_Model {
     }
 
     public function save($data) {
-        return $this->db->insert('product_details', $data);
+        $this->db->insert('product_details', $data);
     }
 
     public function get_details_by_product_id($product_id) {
-        $query = $this->db->get_where('product_details', array('product_id' => $product_id));
-        return $query->result();
+        return $this->db->get_where('product_details', array('product_id' => $product_id))->row();
     }
 
     public function update($product_id, $data) {
         $this->db->where('product_id', $product_id);
-        return $this->db->update('product_details', $data);
+        $this->db->update('product_details', $data);
     }
 
     public function delete($product_id) {

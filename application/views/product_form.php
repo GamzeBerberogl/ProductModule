@@ -141,39 +141,39 @@
                 <div class="tab-pane fade" id="detaylar" role="tabpanel" aria-labelledby="detaylar-tab">
                     <div class="form-group mt-3">
                         <label for="product_title">Ürün Başlığı</label>
-                        <input type="text" class="form-control" id="product_title" name="product_title" value="<?php echo isset($product_details->product_title) ? $product_details->product_title : ''; ?>">
+                        <input type="text" class="form-control" id="product_title" name="product_title" value="<?php echo isset($product_details) && isset($product_details->product_title) ? $product_details->product_title : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="extra_info_title">Ek Bilgi Başlığı</label>
-                        <input type="text" class="form-control" id="extra_info_title" name="extra_info_title" value="<?php echo isset($product_details->extra_info_title) ? $product_details->extra_info_title : ''; ?>">
+                        <input type="text" class="form-control" id="extra_info_title" name="extra_info_title" value="<?php echo isset($product_details) && isset($product_details->extra_info_title) ? $product_details->extra_info_title : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="extra_info_description">Ek Bilgi Açıklaması</label>
-                        <textarea class="form-control" id="extra_info_description" name="extra_info_description"><?php echo isset($product_details->extra_info_description) ? $product_details->extra_info_description : ''; ?></textarea>
+                        <textarea class="form-control" id="extra_info_description" name="extra_info_description"><?php echo isset($product_details) && isset($product_details->extra_info_description) ? $product_details->extra_info_description : ''; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="meta_title">Meta Title</label>
-                        <input type="text" class="form-control" id="meta_title" name="meta_title" value="<?php echo isset($product_details->meta_title) ? $product_details->meta_title : ''; ?>">
+                        <input type="text" class="form-control" id="meta_title" name="meta_title" value="<?php echo isset($product_details) && isset($product_details->meta_title) ? $product_details->meta_title : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="meta_keywords">Meta Keywords</label>
-                        <textarea class="form-control" id="meta_keywords" name="meta_keywords"><?php echo isset($product_details->meta_keywords) ? $product_details->meta_keywords : ''; ?></textarea>
+                        <textarea class="form-control" id="meta_keywords" name="meta_keywords"><?php echo isset($product_details) && isset($product_details->meta_keywords) ? $product_details->meta_keywords : ''; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="meta_description">Meta Description</label>
-                        <textarea class="form-control" id="meta_description" name="meta_description"><?php echo isset($product_details->meta_description) ? $product_details->meta_description : ''; ?></textarea>
+                        <textarea class="form-control" id="meta_description" name="meta_description"><?php echo isset($product_details) && isset($product_details->meta_description) ? $product_details->meta_description : ''; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="seo_address">SEO Adresi</label>
-                        <input type="text" class="form-control" id="seo_address" name="seo_address" value="<?php echo isset($product_details->seo_address) ? $product_details->seo_address : ''; ?>">
+                        <input type="text" class="form-control" id="seo_address" name="seo_address" value="<?php echo isset($product_details) && isset($product_details->seo_address) ? $product_details->seo_address : ''; ?>">
                     </div>
                     <div class="form-group">
                         <label for="product_description">Ürün Açıklaması</label>
-                        <textarea class="form-control" id="product_description" name="product_description"><?php echo isset($product_details->product_description) ? $product_details->product_description : ''; ?></textarea>
+                        <textarea class="form-control" id="product_description" name="product_description"><?php echo isset($product_details) && isset($product_details->product_description) ? $product_details->product_description : ''; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="video_embed_code">Video Embed Kodu</label>
-                        <textarea class="form-control" id="video_embed_code" name="video_embed_code"><?php echo isset($product_details->video_embed_code) ? $product_details->video_embed_code : ''; ?></textarea>
+                        <textarea class="form-control" id="video_embed_code" name="video_embed_code"><?php echo isset($product_details) && isset($product_details->video_embed_code) ? $product_details->video_embed_code : ''; ?></textarea>
                     </div>
                 </div>
 
@@ -228,6 +228,7 @@
             </div>
         </form>
     </div>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>

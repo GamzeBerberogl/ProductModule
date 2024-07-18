@@ -12,7 +12,7 @@ class Seeder extends CI_Controller {
     }
 
     public function index() {
-        // Clear existing data
+        // Clear data
         $this->clear_data();
 
         // Seed data
@@ -21,7 +21,6 @@ class Seeder extends CI_Controller {
     }
 
     private function clear_data() {
-        // Disable foreign key checks
         $this->db->query('SET FOREIGN_KEY_CHECKS = 0');
 
         // Clear tables
